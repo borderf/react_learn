@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hello_react</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="app"></div>
+
+    <!-- 添加依赖 -->
+    <!-- 依赖三个包 -->
+    <!-- CDN引入 -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      // 编写react代码（jsx语法）
+      // 默认情况下jsx语法浏览器无法识别 -> babel
+      const root = ReactDOM.createRoot(document.querySelector('#root'))
+      const app = ReactDOM.createRoot(document.querySelector('#app'))
+
+      root.render(<h2>Hello World</h2>)
+      app.render(<h2>你好啊，李银河</h2>)
+    </script>
+  </body>
+</html>
