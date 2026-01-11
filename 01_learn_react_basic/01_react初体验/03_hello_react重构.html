@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- 使用本地引入 -->
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+
+    <script type="text/babel">
+      // 用于创建一个React根，之后渲染的内容会包含在这个根中
+      const root = ReactDOM.createRoot(document.querySelector('#root'))
+
+      let message = 'Hello World'
+
+      function btnClick() {
+        message = 'Hello React'
+        rootRender()
+      }
+
+      function rootRender() {
+        // 要渲染的根组件
+        // 通过 {} 引入外部的变量或者表达式
+        root.render(
+          <div>
+            <h2>{message}</h2>
+            <button onClick={btnClick}>点击切换</button>
+          </div>
+        )
+      }
+
+      rootRender()
+    </script>
+  </body>
+</html>

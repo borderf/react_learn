@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- 使用本地引入 -->
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+
+    <script type="text/babel">
+      // 类组件
+      // 类名要大写，组件的名称要大写，小写会被认为是html元素
+      // 继承React.Component
+      class App extends React.Component {
+        // 组件数据
+        // 固定写法
+        constructor() {
+          super()
+          // 必须是state
+          this.state = {
+            message: 'Hello World'
+          }
+        }
+
+        // 组件方法(实例方法)
+        btnClick() {
+          this.setState({
+            message: 'Hello React'
+          })
+        }
+
+        // 组件渲染内容 render 方法
+        // 固定写法
+        render() {
+          // 返回什么就会渲染什么
+          return (
+            <div>
+              <h2>{this.state.message}</h2>
+              <button onClick={this.btnClick}>修改按钮</button>
+            </div>
+          )
+        }
+      }
+
+      const root = ReactDOM.createRoot(document.querySelector('#root'))
+      root.render(<App />)
+    </script>
+  </body>
+</html>
